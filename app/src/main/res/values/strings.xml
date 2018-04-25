@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Recommendations</string>
+    <string name="client_key_google">321367903306-ljd7n5ncegkhlr53nc120l5qg6shh6th.apps.googleusercontent.com</string>
 </resources>
