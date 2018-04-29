@@ -13,7 +13,7 @@ public class Etsy {
             public void intercept(RequestFacade request) {
                 request.addEncodedQueryParam("api_key", API_KEY);
             }
-        }
+        };
     }
 
     private static Api getApi() {
