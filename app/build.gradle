@@ -25,6 +25,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     api 'com.google.android.gms:play-services-plus:15.0.0'
     api 'com.squareup.picasso:picasso:2.5.0'
+    api 'com.android.support:recyclerview-v7:26.1.0'
     api 'com.squareup.retrofit:retrofit:1.9.0'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
