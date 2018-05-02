@@ -65,14 +65,14 @@ implements Callback<ActiveListings> {
 
     }
 
-    public class ListingHolder extends RecyclerView.ViewHolder {
+    private class ListingHolder extends RecyclerView.ViewHolder {
 
-        public ImageView mImageView;
-        public TextView titleView;
-        public TextView shopNameView;
-        public TextView priceView;
+        ImageView mImageView;
+        TextView titleView;
+        TextView shopNameView;
+        TextView priceView;
 
-        public ListingHolder(View itemView) {
+        ListingHolder(View itemView) {
             super(itemView);
 
             mImageView = itemView.findViewById(R.id.listing_image);
