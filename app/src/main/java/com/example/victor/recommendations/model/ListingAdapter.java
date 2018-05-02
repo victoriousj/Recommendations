@@ -65,7 +65,7 @@ implements Callback<ActiveListings> {
 
     }
 
-    private class ListingHolder extends RecyclerView.ViewHolder {
+    public class ListingHolder extends RecyclerView.ViewHolder {
 
         ImageView mImageView;
         TextView titleView;
