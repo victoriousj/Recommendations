@@ -1,4 +1,4 @@
-package com.example.victor.recommendations.model;
+package com.example.victor.recommendations;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -6,10 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.example.victor.recommendations.R;
+import com.example.victor.recommendations.model.ActiveListings;
+import com.example.victor.recommendations.model.Listing;
 import com.squareup.picasso.Picasso;
 
 import retrofit.Callback;
