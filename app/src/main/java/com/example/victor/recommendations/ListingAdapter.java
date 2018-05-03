@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.victor.recommendations.model.ActiveListings;
 import com.example.victor.recommendations.model.Listing;
@@ -21,9 +22,11 @@ implements Callback<ActiveListings> {
 
     private LayoutInflater inflater;
     private ActiveListings activeListings;
+    private MainActivity activity;
 
-    public ListingAdapter(Context context) {
-        inflater = LayoutInflater.from(context);
+    public ListingAdapter(MainActivity activity) {
+        this.activity = activity;
+        inflater = LayoutInflater.from(activity);
     }
 
     @Override
@@ -58,11 +61,16 @@ implements Callback<ActiveListings> {
     public void success(ActiveListings activeListings, Response response) {
         this.activeListings = activeListings;
         notifyDataSetChanged();
+        this.activity.showList();
     }
 
     @Override
     public void failure(RetrofitError error) {
+        Toast.makeText(activity.getBaseContext(), "asdf", Toast.LENGTH_SHORT).show();
+    }
 
+    public ActiveListings getActiveListings() {
+        return activeListings;
     }
 
     public class ListingHolder extends RecyclerView.ViewHolder {

@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private View progressBar;
     private TextView errorView;
+    ListingAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         errorView = findViewById(R.id.error_view);
 
-        ListingAdapter adapter = new ListingAdapter(this);
+        adapter = new ListingAdapter(this);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
         recyclerView.setAdapter(adapter);
 
@@ -38,7 +39,13 @@ public class MainActivity extends AppCompatActivity {
             showLoading();
             Etsy.getActiveListings(adapter);
         } else {
-            adapter.success((ActiveListings) savedInstanceState.getParcelable(STATE_ACTIVE_LISTINGS), null);
+            if (savedInstanceState.containsKey(STATE_ACTIVE_LISTINGS)) {
+                adapter.success((ActiveListings) savedInstanceState.getParcelable(STATE_ACTIVE_LISTINGS), null);
+                showList();
+            } else {
+                showLoading();
+                Etsy.getActiveListings(adapter);
+            }
         }
 
     }
@@ -51,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
         super.onSaveInstanceState(outState, outPersistentState);
+        ActiveListings activeListings = adapter.getActiveListings();
+        if (activeListings != null) {
+            outState.putParcelable(STATE_ACTIVE_LISTINGS, activeListings);
+        }
     }
 
     @Override
