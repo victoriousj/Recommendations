@@ -64,13 +64,13 @@ implements Callback<ActiveListings> {
         this.activity.showList();
     }
 
+    public ActiveListings getActiveListings() {
+        return activeListings;
+    }
+
     @Override
     public void failure(RetrofitError error) {
         Toast.makeText(activity.getBaseContext(), "asdf", Toast.LENGTH_SHORT).show();
-    }
-
-    public ActiveListings getActiveListings() {
-        return activeListings;
     }
 
     public class ListingHolder extends RecyclerView.ViewHolder {
